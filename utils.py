@@ -251,7 +251,7 @@ def ChangeDirectoryOwner(username, directory):
 def AurInstall(name=None, pkbuild_url=None):
   CreateBuildUser()
   if name:
-    pkbuild_url = 'https://aur.archlinux.org/packages/%s/%s/PKGBUILD' % (name.lower()[:2], name.lower())
+    pkbuild_url = 'https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=%s' % name.lower()
   workspace_dir = CreateTempDirectory()
   DownloadFile(pkbuild_url, os.path.join(workspace_dir, 'PKGBUILD'))
   ChangeDirectoryOwner(BUILDER_USER, workspace_dir)
